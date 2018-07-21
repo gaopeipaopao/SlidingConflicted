@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#1296db">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:src="@drawable/back_photo" />
+
+
+
+    <com.example.gaope.slidingconflicted.LineView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+        <com.example.gaope.slidingconflicted.OneScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:divider="@drawable/divider"
+                android:showDividers="middle"
+                android:orientation="vertical">
+
+                <include layout="@layout/layout"/>
+                <include layout="@layout/layout"/>
+                <include layout="@layout/layout"/>
+                <include layout="@layout/layout"/>
+                <include layout="@layout/layout"/>
+                <include layout="@layout/layout"/>
+
+                <include layout="@layout/layout" />
+
+                <include layout="@layout/layout"/>
+                <include layout="@layout/layout"/>
+                <include layout="@layout/layout"/>
+                <include layout="@layout/layout"/>
+                <include layout="@layout/layout"/>
+
+            </LinearLayout>
+
+        </com.example.gaope.slidingconflicted.OneScrollView>
+
+    </com.example.gaope.slidingconflicted.LineView>
+
+</LinearLayout>
+
+
+
+
+
+
