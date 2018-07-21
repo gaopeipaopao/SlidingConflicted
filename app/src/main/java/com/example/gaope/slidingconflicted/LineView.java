@@ -33,42 +33,42 @@ public class LineView extends LinearLayout {
         scrollView = (ScrollView)getChildAt(0);
     }
 
-    //外部拦截法
-    @Override
-    public boolean onInterceptTouchEvent(MotionEvent ev) {
-        boolean intercept = false;
-        int scrollviewY = scrollView.getScrollY();
-        int dy = 0;
-        lastY = y;
-        y = (int) ev.getY();
-        switch (ev.getAction()){
-            case MotionEvent.ACTION_DOWN:
-                lastY = y;
-                return false;
-            case MotionEvent.ACTION_MOVE:
-                dy = lastY - y;
-                if (dy < 0 && scrollviewY == 0){
-                    intercept = true;
-                }else {
-                    intercept = false;
-                }
-                return intercept;
-            case MotionEvent.ACTION_UP:
-                lenY = 0;
-                return false;
-        }
-        return intercept;
-    }
-
-
+//    //外部拦截法
 //    @Override
 //    public boolean onInterceptTouchEvent(MotionEvent ev) {
-//        if (ev.getAction() == MotionEvent.ACTION_DOWN){
-//            return false;
-//        }else {
-//            return true;
+//        boolean intercept = false;
+//        int scrollviewY = scrollView.getScrollY();
+//        int dy = 0;
+//        lastY = y;
+//        y = (int) ev.getY();
+//        switch (ev.getAction()){
+//            case MotionEvent.ACTION_DOWN:
+//                lastY = y;
+//                return false;
+//            case MotionEvent.ACTION_MOVE:
+//                dy = lastY - y;
+//                if (dy < 0 && scrollviewY == 0){
+//                    intercept = true;
+//                }else {
+//                    intercept = false;
+//                }
+//                return intercept;
+//            case MotionEvent.ACTION_UP:
+//                lenY = 0;
+//                return false;
 //        }
+//        return intercept;
 //    }
+
+    //内部拦截法
+    @Override
+    public boolean onInterceptTouchEvent(MotionEvent ev) {
+        if (ev.getAction() == MotionEvent.ACTION_DOWN){
+            return false;
+        }else {
+            return true;
+        }
+    }
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
@@ -76,13 +76,13 @@ public class LineView extends LinearLayout {
         int dy = 0;
         lastY = y;
         Log.d(TAG,"lastY:"+lastY);
-        y = (int) event.getY();
-        Log.d(TAG,"y:"+y);
         switch (event.getAction()){
             case MotionEvent.ACTION_DOWN:
                 lastY = y;
                 return true;
             case MotionEvent.ACTION_MOVE:
+                y = (int) event.getY();
+                Log.d(TAG,"y:"+y);
                 dy = lastY - y;
                 Log.d(TAG,"dy:"+dy);
                 lenY = lenY + dy;
@@ -94,6 +94,8 @@ public class LineView extends LinearLayout {
                 //scrollBy(0,-lenY);
                 //scrollTo(0,-dy);也能实现回弹效果，但是不知道咋回事
                 lenY = 0;
+                lastY = 0;
+                y = 0;
                 Log.d(TAG,"lenYaaa"+lenY);
                 return true;
         }
