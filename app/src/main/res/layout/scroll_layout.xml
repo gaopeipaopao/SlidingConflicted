@@ -1,0 +1,31 @@
+<com.example.gaope.slidingconflicted.TwoScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:divider="@drawable/divider"
+        android:showDividers="middle"
+        android:orientation="vertical">
+
+        <include layout="@layout/layout"/>
+        <include layout="@layout/layout"/>
+        <include layout="@layout/layout"/>
+        <include layout="@layout/layout"/>
+        <include layout="@layout/layout"/>
+        <include layout="@layout/layout"/>
+
+        <include layout="@layout/layout" />
+
+        <include layout="@layout/layout"/>
+        <include layout="@layout/layout"/>
+        <include layout="@layout/layout"/>
+        <include layout="@layout/layout"/>
+        <include layout="@layout/layout"/>
+
+    </LinearLayout>
+
+</com.example.gaope.slidingconflicted.TwoScrollView>
